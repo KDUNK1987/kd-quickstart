@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <title>KD Firebase Practice
+  </head>
+  <body>
+
+  <h1 id="bigOne"></h1>
+  
+
+  <script src="https://www.gstatic.com/firebasejs/5.5.9/firebase.js"></script>
+  <script>
+    // Initialize Firebase
+    var config = {
+      apiKey: "AIzaSyDvAvbRuE6vgnsyMVYa35QYIW5t4oF3C8U",
+      authDomain: "kd-quickstart.firebaseapp.com",
+      databaseURL: "https://kd-quickstart.firebaseio.com",
+      projectId: "kd-quickstart",
+      storageBucket: "kd-quickstart.appspot.com",
+      messagingSenderId: "999356263975"
+    };
+    firebase.initializeApp(config);
+
+    var BigOne = document.getElementById('bigOne');
+    var dbRef = firebase.database().ref().child('text');
+    dbRef.on('value', snap => bigOne.innerText = snap.val());
+    
+  </script>    
+  </body>
+</html>
